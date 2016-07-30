@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8"/>
     <title>Document</title>
-    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-a20bda76da.css"/>
+    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-d453a7dca8.css"/>
   </head>
   <body>
     <header class="sub-header">
@@ -96,15 +96,19 @@ Die Anbindung an die umliegenden Städte ist ideal, die A40 und die A52 sind 10 
       </div>
       <div class="contact area" id="contact">
         <h2>Kontakt</h2>
-        <div class="form">
+        <form class="form contact-form">
+          <div class="success-message" style="display: none">Ihre Nachricht wurde verschickt.</div>
+          <div class="error-message" style="display: none">Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut oder versuchen Sie telefonischen Kontakt aufzunehmen.</div>
           <label for="email-address">E-Mail</label>
-          <input id="email-address" type="email"/>
+          <input id="email-address" type="email" name="email"/>
           <label for="content">Nachricht</label>
-          <textarea id="content"></textarea>
+          <textarea id="content" name="content"></textarea>
+          <input type="hidden" name="_format" value="plain"/>
+          <input type="text" name="_gotcha" style="display:none"/>
           <div class="action">
-            <input type="submit" value="Absenden"/>
+            <input class="contact-submit" type="submit" value="Absenden"/>
           </div>
-        </div>
+        </form>
         <address class="address">
           <h3>Anschrift</h3>
           <p class="name">Systemisch-integrative Praxis</p>
