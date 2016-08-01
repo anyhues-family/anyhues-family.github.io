@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="author" content="Andreas Niehues"/>
     <title>Andreas Niehues - Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik</title>
-    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-edf122e9b7.css"/>
+    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-a9a158a2b9.css"/>
   </head>
   <body>
     <header class="sub-header">
@@ -197,10 +197,12 @@ Die Anbindung an die umliegenden Städte ist ideal, die A40 und die A52 sind 10 
         }
       });
       
-      $('.teaser a').on('click touchend', function(e) {
-        var el = $(this);
-        var link = el.attr('href');
-        window.location = link;
+      $('.teaser a').on('touchstart mouseenter', function(e) {
+        $(this).addClass('hover');
+      });
+      
+      $('.teaser a').on('touchmove click mouseleave', function(e) {
+        $(this).removeClass('hover');
       });
     </script>
   </body>
