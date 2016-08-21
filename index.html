@@ -8,7 +8,7 @@
       <meta name="keywords" content="Familientherapie, Familientherapeut, Familienberatung, Familienberater, Andreas, Andrea, Andre, Niehues, Niehus, Niehuis, Niehaus, Essen, Ruhrgebiet, Mülheim, Oberhausen, Duisburg, Gladbeck, Bocholt, Familienaufstellungen, Familienaufstellung, Hellinger, Aufstellung , Aufstellungen, Systemisch, Systemisch-integrativ, Systemische, Familie, Familien, Trennung, Scheidung, Patchworkfamilie, Kind, Kinder, Regenbogenfamilie, Pubertät, Magersucht, Anorexie, Ritzen, Selbst verletzen, Alkohol, Drogen, Steit, Streitigkeiten, Geschwister, Geschwisterrivalität, Eltern, Bruder, Schwester, Vater, Mutter, Eifersucht, Eifersüchtig, Chronisch Krank, Krebs, HIV, Aids, Schwul, Lesbisch, Lesbe, Homosexuell, Coming-out, Schulprobleme"/>
       <meta name="description" content="Belastendes Familienleben? Wege aus dem Alltagsstress zu mehr Familienidylle. Beziehungen in der Familie neu gestalten."/>
     <title>Familientherapie - Andreas Niehues</title>
-    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-7f95210654.css"/>
+    <link rel="stylesheet" href="https://niehues-assets.github.io/css/main-2a72b7c010.css"/>
     <script src="https://niehues-assets.github.io/vendor/picturefill.min.js" async="async"></script>
   </head>
   <body class="production-environment" id="top">
@@ -150,18 +150,19 @@ Die Anbindung an die umliegenden Städte ist ideal, die A40 ist 5 Fahrminuten un
       </div>
       <div class="contact area" id="contact">
         <h2>Kontakt</h2>
-        <form class="form contact-form">
+        <form class="form contact-form disabled">
+          <div class="loading-message">Das Formular wird vorbereitet.</div>
           <div class="success-message" style="display: none">Ihre Nachricht wurde verschickt.</div>
           <div class="error-message" style="display: none">Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut oder versuchen Sie telefonischen Kontakt aufzunehmen.</div>
           <div class="validation-message" style="display: none">Bitte füllen Sie alle Felder entsprechend aus.</div>
           <label for="email-address">E-Mail</label>
-          <input id="email-address" type="email" name="email" placeholder="email@beispiel.de"/>
+          <input id="email-address" type="email" name="email" placeholder="email@beispiel.de" disabled="disabled"/>
           <label for="content">Nachricht</label>
-          <textarea id="content" name="content" placeholder="Ihre Nachricht ..."></textarea>
+          <textarea id="content" name="content" placeholder="Ihre Nachricht ..." disabled="disabled"></textarea>
           <input type="hidden" name="_format" value="plain"/>
           <input type="text" name="_gotcha" style="display:none"/>
           <div class="action">
-            <input class="contact-submit" type="submit" value="Absenden"/>
+            <input class="contact-submit" type="submit" value="Absenden" disabled="disabled"/>
           </div>
         </form>
         <address class="address" itemscope="itemscope" itemtype="http://schema.org/LocalBusiness">
@@ -179,14 +180,19 @@ Die Anbindung an die umliegenden Städte ist ideal, die A40 ist 5 Fahrminuten un
     <footer class="main-footer">
       <p class="copyright">Copyright &copy; 2016 Andreas Niehues</p>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" async="async"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script>
       $(document).ready(() => {
         var host = "pra!?x!is" + "!!-nie!!" + "!hues??" + ".??de"
         var user = "!i!n?f?o"
         var address = user+"@"+host
+        var contactForm = $('.contact-form')
       
-        $('.contact-form').on('submit', function(e) {
+        contactForm.removeClass('disabled')
+        .find(':disabled').attr('disabled', false)
+        contactForm.find('.loading-message').remove()
+      
+        contactForm.on('submit', function(e) {
           e.preventDefault();
       
           var error = false;
